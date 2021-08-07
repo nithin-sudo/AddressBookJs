@@ -138,10 +138,6 @@ let contactArray = new Array();
 function addContact(){
     let firstName = prompt("Enter Firstname: ");
     let lastName = prompt("Enter Lastname: ");
-    if(contactArray.find((contact)=>(contact.firstName+" "+contact.lastName)==(FirstName+" "+LastName))){   
-        console.log("Name is already present in addressbook.");
-        return;
-    }
     let address = prompt("Enter Address: ");
     let city = prompt("Enter City name: ");
     let state = prompt("Enter State name: ");
@@ -220,7 +216,7 @@ let deletContact=()=>{
 
 let choice = 0;
 do{
-    console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact 4)delete contact \n0)Exit:");
+    console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact \n4)delete contact \n5)number of contacs \n0)Exit:");
     choice = Number(prompt("Enter your choice: "));
     if(choice == 1){
         addContact();
@@ -238,5 +234,8 @@ do{
     }
     if(choice == 4){
         deletContact();
+    }
+    if(choice == 5){
+        console.log("Number of Contacts: "+contactArray.reduce(contact=>contact + 1, 0));
     }
 }while(choice != 0);
