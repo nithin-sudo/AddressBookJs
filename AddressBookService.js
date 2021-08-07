@@ -306,7 +306,7 @@ do{
         }
     }
     if(choice == 8){
-        console.log(contactArray.sort((a,b)=>a.firstName.localeCompare(b.firstName)));
+        process.stdout.write(contactArray.sort((a,b)=>a.firstName.localeCompare(b.firstName)));
     }
     if(choice == 9){
         console.log("Sort Contacts based on \t1.) City \t2.) State \t3.) Zip")
