@@ -218,9 +218,20 @@ let deletContact=()=>{
     }
 }
 
+function searchByCityOrState(searchCityOrState, choice){
+    let contacts = new Array();
+    if(choice == 1){
+        contacts = contactArray.filter(contact => contact.city === searchCityOrState)
+    }
+    if(choice == 2){
+        contacts = contactArray.filter(contact => contact.state === searchCityOrState)
+    }
+    console.log("Contact: ",contacts);
+}
+
 let choice = 0;
 do{
-    console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact \n4)delete contact \n5)number of contacs \n0)Exit:");
+    console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact \n4)delete contact \n5)number of contacs \n6)Search City or state \n0)Exit:");
     choice = Number(prompt("Enter your choice: "));
     if(choice == 1){
         addContact();
@@ -241,5 +252,17 @@ do{
     }
     if(choice == 5){
         console.log("Number of Contacts: "+contactArray.reduce(contact=>contact + 1, 0));
+    }
+    if(choice == 6){
+        console.log("1) Search By City  2) Search By State");
+        let ch = Number(prompt("Enter your choice: "));
+        switch (ch){
+            case 1: let city = prompt("Enter the city name: ");
+                    searchByCityOrState(city, 1);
+                    break;
+            case 2: let state = prompt("Enter the state name: ");
+                    searchByCityOrState(state, 2);
+                    break;
+        }
     }
 }while(choice != 0);
