@@ -6,9 +6,9 @@ class AddressBookService{
     state;
     zip;
     phoneNumber;
-    email;
+    emailId;
 
-    constructor(firstName, lastName, address, city, state, zip, phoneNumber, email) {
+    constructor(firstName, lastName, address, city, state, zip, phoneNumber, emailId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -16,7 +16,7 @@ class AddressBookService{
         this.state = state;
         this.zip = zip;
         this.phoneNumber = phoneNumber;
-        this.email = email;
+        this.emailId = emailId;
     }
 
     
@@ -132,4 +132,6 @@ class AddressBookService{
 
 }
 let addressBookService = new AddressBookService("Nithin", "Krishna", "Tirupati", "Tirupati", "Andhra", "514586", "+91 9988665544", "sathram.nithin@gmail.com");
-console.log("AddressBook: " + addressBookService.toString());
+let addressBookArray = new Array();
+addressBookArray.push(addressBookService);
+process.stdout.write("AddressBook Contact : "+addressBookArray.toString());
